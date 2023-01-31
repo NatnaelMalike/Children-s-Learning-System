@@ -38,7 +38,16 @@ public class Alphabets extends JFrame implements ActionListener {
     setVisible(true);
   }
   public static void main(String[] args) {
-    new Alphabets();
+    
+    EventQueue.invokeLater(new Runnable() {
+      public void run() {
+        try {
+          new Alphabets();
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
+      }
+    });
   }
   @Override
   public void actionPerformed(ActionEvent e) {

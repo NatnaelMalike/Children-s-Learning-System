@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.*;
 
 public class Quiz extends JFrame implements ActionListener {
   JPanel btnBoard = new JPanel();
@@ -8,14 +9,45 @@ public class Quiz extends JFrame implements ActionListener {
   JButton [] Choices = new JButton[4];
   JButton playMe = new JButton("Play~Sound");
   JButton next = new JButton("Next Question");
-  String [] questions = {"A.wav","B.wav","1.wav","4.wav"};
+  Random random = new Random();
+  HashMap <String, String> quizQueAns = new HashMap<>();
+  String [] questions = {"A.wav","B.wav","C.wav","D.wav","E.wav","F.wav","1.wav","2.wav","3.wav","4.wav","5.wav","6.wav"};
+  String [] answers = {"A","B","C","D","E","F","1","2","3","4","5","6"};
+  String [] choiceLabels = new String[4];
   int currentQuestion = 0;
   int index = 0;
+  int min = 0;
+  int max = 3;
+  int random_int;
+  int choiceAnswer;
+  boolean choiceChecker = true;
 
+  public void randomChoice(){
+    String present = answers[0];
+    
+    Choices[randomGenerator(3, 0)].setText(answers[0]);
+    for (int i = 0; i < Choices.length; i++) {
+      String label = String.valueOf((char)(randomGenerator(90, 65)));
+      if(Choices[i].getText() != ""){
+          continue;
+      }else {
+        if (label != present){
+          Choices[i].setText(label);
+          present = label; 
+        }
+      }
+      
+    }
+  }
+
+  public int randomGenerator(int max, int min){
+    return (int)Math.floor(Math.random() * (max - min + 1) + min);
+  }
 
   public Quiz(){
+
     for (int i = 0; i < Choices.length; i++) {
-          Choices[i] = new JButton("A");
+          Choices[i] = new JButton("");
           Choices[i].addActionListener(this);
           btnBoard.add(Choices[i]);
     }
@@ -37,13 +69,20 @@ public class Quiz extends JFrame implements ActionListener {
   }
   @Override
   public void actionPerformed(ActionEvent e) {
-    
+    randomChoice();
     if (e.getSource() == playMe ) {
       new AudioPlayer(questions[index]);
 
     }else if(e.getSource() == next){
-      index ++;
-      currentQuestion++;
+      
+      randomChoice();
+    }else if(e.getSource() == Choices){
+      
+      for (int i = 0; i < Choices.length; i++) {
+        if(Choices[i].getText() == String.valueOf(currentQuestion)){
+          JOptionPane.showMessageDialog(null, "Correct!");
+        }
+      }
       
     }
     
