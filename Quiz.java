@@ -60,7 +60,7 @@ public class Quiz extends JFrame implements ActionListener {
     add(next);
     add(startQuiz);
     setLayout(null);
-    setSize(300,500);
+    setSize(1200,700);
     btnBoard.setLayout(btnGrid);
     btnBoard.setBounds(10,10,250,200);
     add(btnBoard);

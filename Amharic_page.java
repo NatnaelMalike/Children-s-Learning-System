@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class Amharic_page extends JFrame {
     private JFrame english_page;
@@ -43,7 +44,7 @@ public class Amharic_page extends JFrame {
         Back.setFont(new Font("Sans Serif",Font.PLAIN,20));
         Back.setBackground( new Color(186, 31, 220));
         Back.setBounds(540,500,130,60);
-        Back.setBorder(new RoundedBorder(30));
+       
         Back.setFocusable(false);
         Back.setForeground(new Color(255, 255, 255));
 
@@ -55,7 +56,12 @@ public class Amharic_page extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 english_page.setVisible(false);
-                new Home().setVisible(true);
+                try {
+                    new Home().setVisible(true);
+                } catch (FontFormatException | IOException e1) {
+                    
+                    e1.printStackTrace();
+                }
             }
         });
 

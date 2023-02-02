@@ -3,6 +3,8 @@ import javax.swing.*;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.io.File;
+import java.io.IOException;
 import java.awt.event.*;
 
 public class Home extends JFrame  {
@@ -14,23 +16,25 @@ public class Home extends JFrame  {
 
     JFrame home = new JFrame();
 
-    public Home(){
+    public Home() throws FontFormatException, IOException{
         JLabel baackJLabel;
         setSize(1200,700);
         setLayout(null);
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        ImageIcon image = new ImageIcon("images/back.jpg");
+        ImageIcon image = new ImageIcon("images/f.eps");
         baackJLabel = new JLabel("",image,JLabel.CENTER);
         baackJLabel.setBounds(0,0,1200,700);
 
-       char first1 = '\u002F';
-        amharic_button = new JButton(String.valueOf(first1));
-        amharic_button.setFont(new Font(Font.SANS_SERIF,Font.BOLD,20));
+        Font font = Font.createFont(Font.TRUETYPE_FONT, new File("Font/AbyssinicaSIL-R.ttf"));
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        ge.registerFont(font);
+        amharic_button = new JButton(" ለአማርኛ ");
+        amharic_button.setFont(new Font("Abyssinica SIL",Font.PLAIN,23));
         amharic_button.setBackground(Color.yellow.brighter());
         amharic_button.setBounds(340,200,130,60);
-        amharic_button.setBorder(new RoundedBorder(30));
+        amharic_button.setFocusable(false);
         amharic_button.setForeground(Color.darkGray);
 
 
@@ -38,20 +42,22 @@ public class Home extends JFrame  {
         english_button.setFont(new Font("Sans Serif",Font.PLAIN,20));
         english_button.setBackground(Color.yellow.brighter());
         english_button.setBounds(740,200,130,60);
-        english_button.setBorder(new RoundedBorder(30));
+        english_button.setFocusable(false);
+        
 
         Back = new JButton("Exit");
         Back.setFont(new Font("Sans Serif",Font.PLAIN,20));
         Back.setBackground( new Color(34, 103, 37));
         Back.setBounds(740,400,130,60);
-        Back.setBorder(new RoundedBorder(30));
+       Back.setFocusable(false);
         Back.setForeground(Color.WHITE);
 
         Quiz = new JButton("Quiz");
         Quiz.setFont(new Font("Sans Serif",Font.PLAIN,20));
         Quiz.setBackground(Color.yellow.brighter());
         Quiz.setBounds(340,400,130,60);
-        Quiz.setBorder(new RoundedBorder(30));
+        Quiz.setFocusable(false);
+        
 
 
         Top = new JLabel();
@@ -100,7 +106,7 @@ public class Home extends JFrame  {
       setVisible(true);
 }
 
-public static void main(String[] args) {
+public static void main(String[] args) throws FontFormatException, IOException {
     new Home();
 }
 }

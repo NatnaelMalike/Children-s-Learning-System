@@ -40,7 +40,7 @@ public class English_page extends JFrame {
         Back.setFont(new Font("Sans Serif",Font.PLAIN,20));
         Back.setBackground( new Color(145, 70, 18));
         Back.setBounds(540,500,130,60);
-        Back.setBorder(new RoundedBorder(30));
+        
         Back.setFocusable(false);
         Back.setForeground(new Color(255, 255, 255));
 
