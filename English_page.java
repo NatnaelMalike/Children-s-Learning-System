@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class English_page extends JFrame {
     private JFrame english_page;
@@ -61,7 +62,15 @@ public class English_page extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                english_page.setVisible(false);
-               new Home().setVisible(true);
+               try {
+                new Home().setVisible(true);
+            } catch (FontFormatException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
             }
         });
         Aphabets.addActionListener(new ActionListener() {
