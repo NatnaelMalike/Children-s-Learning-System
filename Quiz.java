@@ -22,24 +22,19 @@ public class Quiz extends JFrame implements ActionListener {
   int choiceAnswer;
   boolean choiceChecker = true;
 
-  public void randomChoice(){
-    String present = answers[0];
-    
-    Choices[randomGenerator(3, 0)].setText(answers[0]);
-    for (int i = 0; i < Choices.length; i++) {
+  public void randomChoice(int index){
+    String present = answers[index];
+    Choices[randomGenerator(3, 0)].setText(answers[index]);
+   /*  for (int i = 0; i < Choices.length; i++) {
       String label = String.valueOf((char)(randomGenerator(90, 65)));
       if(Choices[i].getText() != ""){
           continue;
-      }else {
-        if (label != present){
+      }else if (label != present){
           Choices[i].setText(label);
           present = label; 
         }
-      }
-      
+      }*/
     }
-  }
-
   public int randomGenerator(int max, int min){
     return (int)Math.floor(Math.random() * (max - min + 1) + min);
   }
@@ -69,13 +64,13 @@ public class Quiz extends JFrame implements ActionListener {
   }
   @Override
   public void actionPerformed(ActionEvent e) {
-    randomChoice();
+    
     if (e.getSource() == playMe ) {
       new AudioPlayer(questions[index]);
 
     }else if(e.getSource() == next){
-      
-      randomChoice();
+      index ++;
+      randomChoice(index);
     }else if(e.getSource() == Choices){
       
       for (int i = 0; i < Choices.length; i++) {
