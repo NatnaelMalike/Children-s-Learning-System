@@ -14,7 +14,7 @@ public class Amharic_Alphabets extends JFrame implements ActionListener {
   JPanel cPanel = new JPanel();
   GridLayout amhGrid = new GridLayout(3,11);
   GridLayout childGrid = new GridLayout(1,7);
-  Image image = Toolkit.getDefaultToolkit().getImage("images/School 02.jpg");
+  Image image = tk.getImage("images/School 02.jpg");
   ImageIcon icon = new ImageIcon(image);
   JLabel label = new JLabel(icon);
   
