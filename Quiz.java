@@ -4,6 +4,8 @@ import java.awt.event.*;
 import java.util.*;
 
 public class Quiz extends JFrame implements ActionListener {
+  Toolkit tk=Toolkit.getDefaultToolkit();
+  Dimension screenSize = tk.getScreenSize(); 
   JPanel btnBoard = new JPanel();
   GridLayout btnGrid = new GridLayout(2,2);
   JButton [] Choices = new JButton[4];
@@ -45,11 +47,7 @@ public class Quiz extends JFrame implements ActionListener {
 
   public Quiz(){
 
-    for (int i = 0; i < Choices.length; i++) {
-          Choices[i] = new JButton("");
-          Choices[i].addActionListener(this);
-          btnBoard.add(Choices[i]);
-    }
+   
     playMe.setBounds(20, 250,100,40 );
     playMe.addActionListener(this);
     next.addActionListener(this);
@@ -60,25 +58,31 @@ public class Quiz extends JFrame implements ActionListener {
     add(next);
     add(startQuiz);
     setLayout(null);
-    setSize(1200,700);
+    setSize((int) (screenSize.width * 0.4),(int) (screenSize.height * 0.65));
     btnBoard.setLayout(btnGrid);
     btnBoard.setBounds(10,10,250,200);
     add(btnBoard);
     setVisible(true);
+    setLocation((int) (screenSize.width * 0.3),(int) (screenSize.width * 0.075));
   }
   public static void main(String[] args) {
     new Quiz();
   }
   @Override
   public void actionPerformed(ActionEvent e) {
-    if(e.getSource() == startQuiz){randomChoice();}
+    if(e.getSource() == startQuiz){
+      for (int i = 0; i < Choices.length; i++) {
+        Choices[i] = new JButton("");
+        Choices[i].addActionListener(this);
+        btnBoard.add(Choices[i]);
+  }
+      randomChoice();}
     
     else if (e.getSource() == playMe ) {
       new AudioPlayer(question);
 
     }else if(e.getSource() == next){
       currentQuestion++;
-      
       randomChoice();
     }else{
       for(int i = 0; i<4; i++){
@@ -90,7 +94,6 @@ public class Quiz extends JFrame implements ActionListener {
           break;}
         }     
     }
-
   }
   if (currentQuestion == questions.length) {
     JOptionPane.showMessageDialog(null, "Quiz Completed.");
