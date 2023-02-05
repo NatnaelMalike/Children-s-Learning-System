@@ -23,13 +23,13 @@ public class Alphabets extends JFrame implements ActionListener {
       numButtons[i] = new JButton(String.valueOf(i));
       numButtons[i].addActionListener(this);
       numBtnPanel.add(numButtons[i]);
-      alphabetsMap.put(numButtons[i], String.valueOf(i) +".wav" );
+      alphabetsMap.put(numButtons[i], "English Numbers/" + String.valueOf(i) +".wav" );
     }
     for (int i = 0; i < englishLetterButtons.length; i++) {
       englishLetterButtons[i] = new JButton(String.valueOf((char)(i + 65)));
       englishLetterButtons[i].addActionListener(this);
       engBtnPanel.add(englishLetterButtons[i]);
-      alphabetsMap.put(englishLetterButtons[i],String.valueOf((char)(i + 65)) +".wav");
+      alphabetsMap.put(englishLetterButtons[i],"English Alphabets/" +String.valueOf((char)(i + 65)) +".wav");
 
     }
     add(numBtnPanel);
