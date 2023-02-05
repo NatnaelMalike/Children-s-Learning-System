@@ -22,18 +22,8 @@ public class Quiz extends JFrame implements ActionListener {
   int choiceAnswer;
   boolean choiceChecker = true;
 
-  public void randomChoice(int index){
-    String present = answers[index];
+  public void randomChoice(){
     Choices[randomGenerator(3, 0)].setText(answers[index]);
-   /*  for (int i = 0; i < Choices.length; i++) {
-      String label = String.valueOf((char)(randomGenerator(90, 65)));
-      if(Choices[i].getText() != ""){
-          continue;
-      }else if (label != present){
-          Choices[i].setText(label);
-          present = label; 
-        }
-      }*/
     }
   public int randomGenerator(int max, int min){
     return (int)Math.floor(Math.random() * (max - min + 1) + min);
