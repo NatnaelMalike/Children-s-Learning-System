@@ -57,7 +57,7 @@ public class Amharic_Color extends JFrame implements ActionListener {
         colorButtons[9].setBounds((int)(screenSize.width * 0.8),(int)(screenSize.width * 0.02), (int)(screenSize.width * 0.1), (int)(screenSize.width * 0.1));
         colorButtons[10].setBounds((int)(screenSize.width * 0.8),(int)(screenSize.width * 0.195), (int)(screenSize.width * 0.1), (int)(screenSize.width * 0.1));
         colorButtons[11].setBounds((int)(screenSize.width * 0.8),(int)(screenSize.width * 0.377), (int)(screenSize.width * 0.1), (int)(screenSize.width * 0.1));
-        colorName[0].setBounds((int)(screenSize.width * 0.067),(int)(screenSize.width * 0.071), 200, 200);
+        colorName[0].setBounds((int)(screenSize.width * 0.067),(int)(screenSize.width * 0.091), 200, 200);
         colorName[1].setBounds((int)(screenSize.width * 0.077),(int)(screenSize.width * 0.265), 200, 200);
         colorName[2].setBounds((int)(screenSize.width * 0.057),(int)(screenSize.width * 0.449), 200, 200);
         colorName[3].setBounds((int)(screenSize.width * 0.337),(int)(screenSize.width * 0.091), 200, 200);
