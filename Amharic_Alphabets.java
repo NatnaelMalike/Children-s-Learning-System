@@ -4,7 +4,6 @@ import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
-
 public class Amharic_Alphabets extends JFrame implements ActionListener {
   Toolkit tk=Toolkit.getDefaultToolkit();
   Dimension screenSize = tk.getScreenSize(); 
@@ -17,8 +16,6 @@ public class Amharic_Alphabets extends JFrame implements ActionListener {
   Image image = tk.getImage("images/School 02.jpg");
   ImageIcon icon = new ImageIcon(image);
   JLabel label = new JLabel(icon);
-  
-  
   HashMap <Object, String> amharicAlphabetsMap = new HashMap<>();
   HashMap <Object, Integer> amharicChildAlphabetsMap = new HashMap<>();
   HashMap <Object, String> childAudio = new HashMap<>();
@@ -45,8 +42,6 @@ public class Amharic_Alphabets extends JFrame implements ActionListener {
       childAudio.put(childButtons[i],"Amharic Alphabets/"+ String.valueOf(parent + 1) +"/"+ String.valueOf(i + 1) + ".wav" );
      }
   }
-  
-
   public Amharic_Alphabets(){
     Font font;
     try {
@@ -83,6 +78,7 @@ setSize(screenSize.width,screenSize.height);
    label.setBounds(0,0,screenSize.width,screenSize.height);
   add(label);
    setVisible(true);
+   setUndecorated(true);
   }
   public static void main(String[] args) {
     new Amharic_Alphabets();
