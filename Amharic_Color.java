@@ -39,25 +39,25 @@ public class Amharic_Color extends JFrame implements ActionListener {
             icon = new ImageIcon(image);
             colorButtons[i] = new JButton("", icon);
             colorName[i] = new JLabel(colorNames[i]);
-            colorName[i].setFont(new Font("Abyssinica SIL",Font.PLAIN,43));
+            colorName[i].setFont(new Font("Abyssinica SIL",Font.PLAIN,(int)(screenSize.width * 0.0248)));
             add(colorName[i]);
             colorButtons[i].addActionListener(this);
             add(colorButtons[i]);
             colorsAudio.put(colorButtons[i],"Amharic Colors/"+String.valueOf(i + 1)+".wav");
         } 
-        colorButtons[0].setBounds((int)(screenSize.width * 0.05),(int)(screenSize.width * 0.02), 200, 200);
-        colorButtons[1].setBounds((int)(screenSize.width * 0.05),(int)(screenSize.width * 0.195), 200, 200);
-        colorButtons[2].setBounds((int)(screenSize.width * 0.05),(int)(screenSize.width * 0.377), 200, 200);
-        colorButtons[3].setBounds((int)(screenSize.width * 0.3),(int)(screenSize.width * 0.02), 200, 200);
-        colorButtons[4].setBounds((int)(screenSize.width * 0.3),(int)(screenSize.width * 0.195), 200, 200);
-        colorButtons[5].setBounds((int)(screenSize.width * 0.3),(int)(screenSize.width * 0.377), 200, 200);
-        colorButtons[6].setBounds((int)(screenSize.width * 0.55),(int)(screenSize.width * 0.02), 200, 200);
-        colorButtons[7].setBounds((int)(screenSize.width * 0.55),(int)(screenSize.width * 0.195), 200, 200);
-        colorButtons[8].setBounds((int)(screenSize.width * 0.55),(int)(screenSize.width * 0.377), 200, 200);
-        colorButtons[9].setBounds((int)(screenSize.width * 0.8),(int)(screenSize.width * 0.02), 200, 200);
-        colorButtons[10].setBounds((int)(screenSize.width * 0.8),(int)(screenSize.width * 0.195), 200, 200);
-        colorButtons[11].setBounds((int)(screenSize.width * 0.8),(int)(screenSize.width * 0.377), 200, 200);
-        colorName[0].setBounds((int)(screenSize.width * 0.067),(int)(screenSize.width * 0.091), 200, 200);
+        colorButtons[0].setBounds((int)(screenSize.width * 0.05),(int)(screenSize.width * 0.02), (int)(screenSize.width * 0.1), (int)(screenSize.width * 0.1));
+        colorButtons[1].setBounds((int)(screenSize.width * 0.05),(int)(screenSize.width * 0.195), (int)(screenSize.width * 0.1), (int)(screenSize.width * 0.1));
+        colorButtons[2].setBounds((int)(screenSize.width * 0.05),(int)(screenSize.width * 0.377), (int)(screenSize.width * 0.1), (int)(screenSize.width * 0.1));
+        colorButtons[3].setBounds((int)(screenSize.width * 0.3),(int)(screenSize.width * 0.02), (int)(screenSize.width * 0.1), (int)(screenSize.width * 0.1));
+        colorButtons[4].setBounds((int)(screenSize.width * 0.3),(int)(screenSize.width * 0.195), (int)(screenSize.width * 0.1), (int)(screenSize.width * 0.1));
+        colorButtons[5].setBounds((int)(screenSize.width * 0.3),(int)(screenSize.width * 0.377), (int)(screenSize.width * 0.1), (int)(screenSize.width * 0.1));
+        colorButtons[6].setBounds((int)(screenSize.width * 0.55),(int)(screenSize.width * 0.02), (int)(screenSize.width * 0.1), (int)(screenSize.width * 0.1));
+        colorButtons[7].setBounds((int)(screenSize.width * 0.55),(int)(screenSize.width * 0.195), (int)(screenSize.width * 0.1), (int)(screenSize.width * 0.1));
+        colorButtons[8].setBounds((int)(screenSize.width * 0.55),(int)(screenSize.width * 0.377), (int)(screenSize.width * 0.1), (int)(screenSize.width * 0.1));
+        colorButtons[9].setBounds((int)(screenSize.width * 0.8),(int)(screenSize.width * 0.02), (int)(screenSize.width * 0.1), (int)(screenSize.width * 0.1));
+        colorButtons[10].setBounds((int)(screenSize.width * 0.8),(int)(screenSize.width * 0.195), (int)(screenSize.width * 0.1), (int)(screenSize.width * 0.1));
+        colorButtons[11].setBounds((int)(screenSize.width * 0.8),(int)(screenSize.width * 0.377), (int)(screenSize.width * 0.1), (int)(screenSize.width * 0.1));
+        colorName[0].setBounds((int)(screenSize.width * 0.067),(int)(screenSize.width * 0.071), 200, 200);
         colorName[1].setBounds((int)(screenSize.width * 0.077),(int)(screenSize.width * 0.265), 200, 200);
         colorName[2].setBounds((int)(screenSize.width * 0.057),(int)(screenSize.width * 0.449), 200, 200);
         colorName[3].setBounds((int)(screenSize.width * 0.337),(int)(screenSize.width * 0.091), 200, 200);
@@ -74,7 +74,12 @@ public class Amharic_Color extends JFrame implements ActionListener {
         setVisible(true);
         background.setBounds(0,0,screenSize.width,screenSize.height);
         add(background);
-        setUndecorated(true);
+        try {
+          setUndecorated(true);
+        } catch (Exception e) {
+          // TODO: handle exception
+        }
+        
     }
     public static void main(String[] args) {
        new Amharic_Color(); 

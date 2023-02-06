@@ -8,7 +8,8 @@ public class Amharic_Alphabets extends JFrame implements ActionListener {
   Toolkit tk=Toolkit.getDefaultToolkit();
   Dimension screenSize = tk.getScreenSize(); 
   JButton[] amhButtons= new JButton[34];
-  JButton[] childButtons = new JButton[7];  JPanel amhPanel = new JPanel();
+  JButton[] childButtons = new JButton[7];
+  JPanel amhPanel = new JPanel();
   JPanel childPanel = new JPanel();
   JPanel cPanel = new JPanel();
   GridLayout amhGrid = new GridLayout(3,11);
@@ -36,7 +37,7 @@ public class Amharic_Alphabets extends JFrame implements ActionListener {
     for (int i = 0; i < 7; i++) {
       childButtons[i] = new JButton(all_Childs[parent][i]);
       childPanel.add(childButtons[i]);
-      childButtons[i].setFont(new Font("Abyssinica SIL",Font.PLAIN,53));
+      childButtons[i].setFont(new Font("Abyssinica SIL",Font.PLAIN,(int)(screenSize.width * 0.03)));
       childButtons[i].addActionListener(this);
       childButtons[i].setBackground(new Color(4,240,232));
       childAudio.put(childButtons[i],"Amharic Alphabets/"+ String.valueOf(parent + 1) +"/"+ String.valueOf(i + 1) + ".wav" );
@@ -70,15 +71,16 @@ setSize(screenSize.width,screenSize.height);
    for (int i = 0; i < amhButtons.length; i++) {
         amhButtons[i] = new JButton(fir_amh[i]);
         amhButtons[i].addActionListener(this);
-        amhButtons[i].setFont(new Font("Abyssinica SIL",Font.PLAIN,53));
+        amhButtons[i].setFont(new Font("Abyssinica SIL",Font.PLAIN,(int)(screenSize.width * 0.0248)));
         amharicAlphabetsMap.put(amhButtons[i],"Amharic Alphabets/"+ String.valueOf(i + 1) + ".wav");
         amharicChildAlphabetsMap.put(amhButtons[i],i);
         amhPanel.add(amhButtons[i]);
    }
    label.setBounds(0,0,screenSize.width,screenSize.height);
   add(label);
-   setVisible(true);
-   setUndecorated(true);
+  setVisible(true);
+  childPanel.setOpaque(false);
+  amhPanel.setOpaque(false);
   }
   public static void main(String[] args) {
     new Amharic_Alphabets();
