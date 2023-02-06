@@ -21,7 +21,7 @@
         JLabel background = new JLabel(iconback);
         HashMap <Object, String> colorsAudio = new HashMap<>();
         String audioName;
-        String [] colorNames ={"Green", "Yellow", "Orange", "Brown", "Gray", "Pink", "White", "Red", "Blue", "Black", "Purple", "Baby Blue"};
+        String [] colorNames ={"Green", "Yellow", "Orange", "Brown", "Grey", "Pink", "White", "Red", "Blue", "Black", "Purple", "Light Blue"};
     
         public English_Color(){
           
@@ -69,7 +69,7 @@
             try {
               setUndecorated(true);
             } catch (Exception e) {
-              // TODO: handle exception
+              
             }
             
         }
