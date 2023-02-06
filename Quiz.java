@@ -18,10 +18,12 @@ public class Quiz extends JFrame implements ActionListener {
   Character [] []options = {{'I','J','E','S'},{'H','B','T','F'},{'J','C','T','S'},{'H','K','A','D'},{'V','G','U','O'},
   {'Z','Y','L','N'},{'5','3','1','0'},{'5','7','3','8'},{'5','6','8','4'},{'1','8','4','7'},{'2','5','9','3'}};
   String [] choiceLabels = new String[4];
+  int [] ind = new int[11];
   int currentQuestion = 1;
   int min = 0;
   int max = 3;
   int randomIndex;
+  int indicator;
   String question;
   Image image1 = tk.getImage("images/Quiz/icon1.png");
   Image image2 = tk.getImage("images/Quiz/play sound.png");
@@ -33,24 +35,22 @@ public class Quiz extends JFrame implements ActionListener {
   ImageIcon icon4 = new ImageIcon(image4);;
   JLabel label = new JLabel(icon4);
   int answered;
+  ArrayList<Integer> numbers;
+  Random randomGenerator;
 
   public void randomChoice(){
-
-    for (int i = 0; i < questions.length; i++) {
-      randomIndex = (int) (Math.random() * questions.length);
-       question = questions[randomIndex];
+   randomIndex = ind[indicator];
+   question = questions[randomIndex];
       for (int j = 0; j < 4; j++) {
         Choices[j].setText(String.valueOf(options[randomIndex][j]));
-      
       }
-    }
-  }
+      indicator++;
+}
+  
   public int randomGenerator(int max, int min){
     return (int)Math.floor(Math.random() * (max - min + 1) + min);
   }
-
   public Quiz(){
-    
     playMe = new JButton("", icon2);
     next = new JButton("", icon3);
     startQuiz = new JButton("", icon1);
@@ -59,7 +59,6 @@ public class Quiz extends JFrame implements ActionListener {
     playMe.setVisible(false);
     playMe.setBorder(null);
     playMe.setBackground(new Color(243,205,80));
-    
     next.addActionListener(this);
     next.setVisible(false);
     next.setBounds(250, 360,120,120 );
@@ -78,12 +77,21 @@ public class Quiz extends JFrame implements ActionListener {
     btnGrid.setHgap(35);
     btnGrid.setVgap(30);
     add(btnBoard);
-    
     setLocation((int) (screenSize.width * 0.3),(int) (screenSize.width * 0.075));
     label.setBounds(0,0,900,612);
     add(label);
-   
     setVisible(true);
+     numbers = new ArrayList<Integer>();   
+     randomGenerator = new Random();
+    while (numbers.size() < questions.length) {
+    int random = randomGenerator .nextInt(questions.length);
+    if (!numbers.contains(random)) {
+      numbers.add(random);
+    }
+  }
+  for (int i = 0; i < numbers.size(); i++) {
+    ind[i] = numbers.get(i);
+  }
   }
   public static void main(String[] args) {
     new Quiz();
@@ -101,7 +109,6 @@ public class Quiz extends JFrame implements ActionListener {
         Choices[i].setBorder(null);
         btnBoard.add(Choices[i]);
       }
-
       next.setVisible(true);
       playMe.setVisible(true);
       btnBoard.setVisible(true);
@@ -121,7 +128,6 @@ public class Quiz extends JFrame implements ActionListener {
             new AudioPlayer("English Quiz/correct.wav");
             JOptionPane.showMessageDialog(null, "Correct.");
             answered++;
-            
           }else{
             new AudioPlayer("English Quiz/incorrect.wav");
           JOptionPane.showMessageDialog(null, "InCorrect.");

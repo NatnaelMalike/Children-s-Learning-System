@@ -100,7 +100,6 @@ setSize(screenSize.width,screenSize.height);
         child(amharicChildAlphabetsMap.get(key));
       }
     }
-    
     for (Object key : childAudio.keySet()) {
       if(e.getSource() == key){
         String childAudioName = childAudio.get(key);
