@@ -63,7 +63,7 @@ public class Quiz extends JFrame implements ActionListener {
     next.setVisible(false);
     next.setBounds(250, 360,120,120 );
     next.setBorder(null);
-    next.setBackground(new Color(243,205,80));
+    next.setContentAreaFilled(false);
     startQuiz.addActionListener(this);
     startQuiz.setBounds(50, 400,250,132 );
     add(playMe);
@@ -107,6 +107,7 @@ public class Quiz extends JFrame implements ActionListener {
         Choices[i].setForeground(new Color(139,0,0));
         Choices[i].setBackground(new Color(243,205,80));
         Choices[i].setBorder(null);
+        
         btnBoard.add(Choices[i]);
       }
       next.setVisible(true);

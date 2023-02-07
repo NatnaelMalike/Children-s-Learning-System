@@ -72,6 +72,8 @@ setSize(screenSize.width,screenSize.height);
         amhButtons[i] = new JButton(fir_amh[i]);
         amhButtons[i].addActionListener(this);
         amhButtons[i].setFont(new Font("Abyssinica SIL",Font.PLAIN,(int)(screenSize.width * 0.0248)));
+        amhButtons[i].setContentAreaFilled(false);
+        amhButtons[i].setFocusable(false);
         amharicAlphabetsMap.put(amhButtons[i],"Amharic Alphabets/"+ String.valueOf(i + 1) + ".wav");
         amharicChildAlphabetsMap.put(amhButtons[i],i);
         amhPanel.add(amhButtons[i]);

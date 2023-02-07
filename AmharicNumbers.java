@@ -1,4 +1,7 @@
 import javax.swing.*;
+
+import javafx.scene.paint.Color;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.util.HashMap;
@@ -15,6 +18,8 @@ public class AmharicNumbers extends JFrame implements ActionListener {
 
     public AmharicNumbers(){
         setLayout(null);
+        numBtnGrid.setVgap((int)(screenSize.height * 0.01));
+        numBtnGrid.setHgap((int)(screenSize.height * 0.01));
         numBtnPanel.setLayout(numBtnGrid);
         numBtnPanel.setBounds((int)(screenSize.width * 0.05),(int)(screenSize.height * 0.05),(int)(screenSize.width * 0.9),(int)(screenSize.height * 0.8));
         
@@ -23,6 +28,9 @@ public class AmharicNumbers extends JFrame implements ActionListener {
             icon = new ImageIcon(image);
             numButtons[i] = new JButton("", icon);
             numButtons[i].addActionListener(this);
+            numButtons[i].setFocusable(false);
+            numButtons[i].setOpaque(false);
+            numButtons[i].setContentAreaFilled(false);
             numBtnPanel.add(numButtons[i]);
             numbersAudio.put(numButtons[i],"Amharic Numbers/"+String.valueOf(i + 1)+".wav");
         }
@@ -41,6 +49,5 @@ public class AmharicNumbers extends JFrame implements ActionListener {
               new AudioPlayer(audioName);
             }
           }
-        
     }
 }
