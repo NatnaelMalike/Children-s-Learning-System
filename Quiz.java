@@ -128,6 +128,8 @@ public class Quiz extends JFrame implements ActionListener {
           if(question.charAt(0) == options[randomIndex][i]){
             new AudioPlayer("English Quiz/correct.wav");
             JOptionPane.showMessageDialog(null, "Correct.");
+            currentQuestion++;
+      randomChoice();
             answered++;
           }else{
             new AudioPlayer("English Quiz/incorrect.wav");
@@ -136,8 +138,8 @@ public class Quiz extends JFrame implements ActionListener {
         }     
     }
   }
-  if (currentQuestion == questions.length) {
-    JOptionPane.showMessageDialog(null, "Quiz Completed.");
+  if (currentQuestion == 12) {
+    //JOptionPane.showMessageDialog(null, "Quiz Completed.");
     System.exit(0);}
 }
 }
