@@ -2,8 +2,6 @@
     import javax.swing.*;
     import java.awt.*;
     import java.awt.event.*;
-    import java.io.File;
-    import java.io.IOException;
     import java.util.HashMap;
     public class English_Color extends JFrame implements ActionListener {
         Toolkit tk=Toolkit.getDefaultToolkit();
