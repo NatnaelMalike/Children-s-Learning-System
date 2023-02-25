@@ -77,7 +77,7 @@ public class English_page extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 english_page.dispose();
-                new Alphabets();
+                new EnglishAlphabets();
             }
         });
 

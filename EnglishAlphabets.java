@@ -3,38 +3,33 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.util.HashMap;
 
-public class Alphabets extends JFrame implements ActionListener {
-  JButton[] numButtons = new JButton[10];
+public class EnglishAlphabets extends JFrame implements ActionListener {
+  Toolkit tk=Toolkit.getDefaultToolkit();
+    Dimension screenSize = tk.getScreenSize();
   JButton[] englishLetterButtons = new JButton[26];
-  JPanel numBtnPanel = new JPanel();
   JPanel engBtnPanel = new JPanel();
-  GridLayout numBtnGrid = new GridLayout(2,5);
+  
+  
   GridLayout engBtnGrid = new GridLayout(6,5);
   HashMap<Object, String> alphabetsMap = new HashMap<>();
-  
   String audioName;
-  public Alphabets(){
+  public EnglishAlphabets(){
     setLayout(null);
-    numBtnPanel.setLayout(numBtnGrid);
     engBtnPanel.setLayout(engBtnGrid);
-    numBtnPanel.setBounds(10,10,300, 200);
-    engBtnPanel.setBounds(10,240,300, 600);
-    for (int i = 0; i < 10; i++) {
-      numButtons[i] = new JButton(String.valueOf(i));
-      numButtons[i].addActionListener(this);
-      numBtnPanel.add(numButtons[i]);
-      alphabetsMap.put(numButtons[i], "English Numbers/" + String.valueOf(i) +".wav" );
-    }
+    engBtnPanel.setBounds((int)(screenSize.width * 0.05),(int)(screenSize.height * 0.05),(int)(screenSize.width * 0.8),(int)(screenSize.height * 1.5));
+  
     for (int i = 0; i < englishLetterButtons.length; i++) {
       englishLetterButtons[i] = new JButton(String.valueOf((char)(i + 65)));
       englishLetterButtons[i].addActionListener(this);
       engBtnPanel.add(englishLetterButtons[i]);
       alphabetsMap.put(englishLetterButtons[i],"English Alphabets/" +String.valueOf((char)(i + 65)) +".wav");
-
     }
-    add(numBtnPanel);
-    add(engBtnPanel);
-    setSize(335,900);
+    JScrollPane scrPane = new JScrollPane(engBtnPanel);
+    scrPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+scrPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+    add(scrPane);
+
+    setSize(screenSize.width,screenSize.width);
     setVisible(true);
   }
   public static void main(String[] args) {
@@ -42,7 +37,7 @@ public class Alphabets extends JFrame implements ActionListener {
     EventQueue.invokeLater(new Runnable() {
       public void run() {
         try {
-          new Alphabets();
+          new EnglishAlphabets();
         } catch (Exception e) {
           e.printStackTrace();
         }
