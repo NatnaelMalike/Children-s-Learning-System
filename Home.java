@@ -70,7 +70,7 @@ public class Home extends JFrame  {
             @Override
             public void actionPerformed(ActionEvent e) {
                 home.dispose();
-                new Amharic_page();
+                new English_Page();
             }
         });
 
@@ -78,7 +78,7 @@ public class Home extends JFrame  {
             @Override
             public void actionPerformed(ActionEvent e) {
                 home.dispose();
-                new English_page();
+                new Amharic_Page();
             }
         });
 

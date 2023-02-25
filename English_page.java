@@ -2,99 +2,75 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 
-public class English_page extends JFrame {
-    private JFrame english_page;
-    private JButton Aphabets;
-    private JButton Color;
-    private JButton Number;
-    private JButton Back;
-    private  JLabel background,small_images,small_images2;
 
-    English_page(){
-        english_page = new JFrame();
-        setTitle("Learn Alphabets,Colors,Numbers In English");
+public class English_Page extends JFrame implements ActionListener {
+    Image image;
+    ImageIcon icon;
+    Toolkit tk=Toolkit.getDefaultToolkit();
+    Dimension screenSize = tk.getScreenSize();
+    JButton [] btns = new JButton[4];
+    String []btnName = {"Alphabet","Colors","Numbers","Back"};
+    JPanel btnPanel = new JPanel(); 
+    GridLayout grid = new GridLayout(2,2);
+    Image backgnd = tk.getImage("images/School 02.jpg");
+        ImageIcon iconback = new ImageIcon(backgnd);
+        JLabel background = new JLabel(iconback);
+ 
+    
+
+    English_Page(){
+        setLayout(null);
+        grid.setHgap((int)(screenSize.height * 0.1));
+        grid.setVgap((int)(screenSize.height * 0.1));
+        btnPanel.setLayout(grid);
+        btnPanel.setOpaque(false);
+
+        btnPanel.setBounds((int)(screenSize.width * 0.25),(int)(screenSize.height * 0.15),(int)(screenSize.width * 0.5),(int)(screenSize.height * 0.7));
+        
+        for (int i = 0; i < btnName.length; i++) {
+            image = tk.getImage("images/English page Btns/" +String.valueOf(i + 1) +".png");
+            icon = new ImageIcon(image);
+            btns[i] = new JButton("", icon);
+            btns[i].setContentAreaFilled(false);
+            btns[i].setFont(new Font(Font.SANS_SERIF,Font.BOLD,(int)(screenSize.width * 0.03)));
+            btns[i].setBorder(BorderFactory.createLineBorder(Color.ORANGE,20,true));
+            btnPanel.add(btns[i]);
+            btns[i].addActionListener(this); 
+        }
+        setTitle("Learn Alphabets,Colors,Numbers In Amharic");
         setSize(1200,700);
         setResizable(false);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-
-        Aphabets= new JButton("Alphabet");
-        Aphabets.setFont(new Font(Font.SANS_SERIF,Font.BOLD,20));
-        Aphabets.setBackground(new Color(206, 53, 53));
-        Aphabets.setBounds(540,200,130,60);
-        Aphabets.setFocusable(false);
-
-        Color= new JButton("Color");
-        Color.setFont(new Font(Font.SANS_SERIF,Font.BOLD,20));
-        Color.setBackground(new Color(206, 53, 53));
-        Color.setBounds(540,300,130,60);
-        Color.setFocusable(false);
-
-        Number= new JButton("Numbers");
-        Number.setFont(new Font(Font.SANS_SERIF,Font.BOLD,20));
-        Number.setBackground(new Color(206, 53, 53));
-        Number.setBounds(540,400,130,60);
-        Number.setFocusable(false);
-
-        Back = new JButton("Back");
-        Back.setFont(new Font("Sans Serif",Font.PLAIN,20));
-        Back.setBackground( new Color(145, 70, 18));
-        Back.setBounds(540,500,130,60);
-        
-        Back.setFocusable(false);
-        Back.setForeground(new Color(255, 255, 255));
-
-        ImageIcon image = new ImageIcon("images/eng.jpg");
-        background = new JLabel("",image,JLabel.CENTER);
-        background.setBounds(0,0,1200,700);
-
-        ImageIcon small = new ImageIcon(("images/backgr3.jpg"));
-        small_images = new JLabel("",small,JLabel.LEFT);
-        small_images.setBounds(153,56,200,200);
-
-        ImageIcon small_2 = new ImageIcon(("images/image4.jpg"));
-        small_images2 = new JLabel("",small_2,JLabel.LEFT);
-        small_images2.setBounds(850,556,200,100);
-
-
-        Back.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-               english_page.setVisible(false);
-               try {
-                new Home().setVisible(true);
-            } catch (FontFormatException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
-            } catch (IOException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
-            }
-            }
-        });
-        Aphabets.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                english_page.dispose();
-                new EnglishAlphabets();
-            }
-        });
-
-
-        add(Aphabets);
-        add(Color);
-        add(Number);
-        add(Back);
-        add(small_images);
-        add(small_images2);
-        add(background);
+        add(btnPanel);
+        setSize(screenSize.width,screenSize.width);
         setVisible(true);
+        background.setBounds(0,0,screenSize.width,screenSize.height);
+        add(background);
+        try {
+            setUndecorated(true);
+          } catch (Exception e) {
+            
+          }
+          
     }
 
-
     public static void main(String[] args) {
-        new English_page();
+        new English_Page();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == btns[0]) {
+            new EnglishAlphabets();
+        }else if(e.getSource() == btns[1]){
+            new English_Color();
+        }else if(e.getSource() == btns[2]){
+            new EnglishNumber();
+        }
+        else if(e.getSource() == btns[3]){
+            new English_Page();
+        }
+        
     }
 
 }

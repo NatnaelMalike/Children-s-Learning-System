@@ -1,7 +1,6 @@
 import java.awt.*;
 import java.awt.event.*;
 import java.util.HashMap;
-
 import javax.swing.*;
 public class EnglishNumber extends JFrame implements ActionListener {
 
@@ -18,7 +17,9 @@ public class EnglishNumber extends JFrame implements ActionListener {
     public EnglishNumber(){
         setLayout(null);
     numBtnPanel.setLayout(numBtnGrid);
-    numBtnPanel.setBounds(10,10,300, 200);
+    numBtnGrid.setVgap((int)(screenSize.height * 0.1));
+    numBtnGrid.setHgap((int)(screenSize.height * 0.1));
+    numBtnPanel.setBounds((int)(screenSize.width * 0.1),(int)(screenSize.height * 0.2),(int)(screenSize.width * 0.8),(int)(screenSize.height * 0.6));
     for (int i = 0; i < 10; i++) {
         numButtons[i] = new JButton(String.valueOf(i));
         numButtons[i].addActionListener(this);
