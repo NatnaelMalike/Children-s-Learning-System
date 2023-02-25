@@ -16,7 +16,7 @@ public class EnglishAlphabets extends JFrame implements ActionListener {
   public EnglishAlphabets(){
     setLayout(null);
     engBtnPanel.setLayout(engBtnGrid);
-    engBtnPanel.setBounds((int)(screenSize.width * 0.05),(int)(screenSize.height * 0.05),(int)(screenSize.width * 0.8),(int)(screenSize.height * 1.5));
+    engBtnPanel.setBounds((int)(screenSize.width * 0.05),(int)(screenSize.height * 0.05),(int)(screenSize.width * 0.8),(int)(screenSize.height * 0.5));
   
     for (int i = 0; i < englishLetterButtons.length; i++) {
       englishLetterButtons[i] = new JButton(String.valueOf((char)(i + 65)));
@@ -24,11 +24,8 @@ public class EnglishAlphabets extends JFrame implements ActionListener {
       engBtnPanel.add(englishLetterButtons[i]);
       alphabetsMap.put(englishLetterButtons[i],"English Alphabets/" +String.valueOf((char)(i + 65)) +".wav");
     }
-    JScrollPane scrPane = new JScrollPane(engBtnPanel);
-    scrPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-scrPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-    add(scrPane);
-
+    
+    add(engBtnPanel);
     setSize(screenSize.width,screenSize.width);
     setVisible(true);
   }
