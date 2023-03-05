@@ -30,8 +30,7 @@ public class Amharic_Alphabets extends JFrame implements ActionListener {
                             {"ዠ","ዡ","ዢ","ዣ","ዤ","ዥ","ዦ"},{"የ","ዩ","ዪ","ያ","ዬ","ይ","ዮ"},{"ደ","ዱ","ዲ","ዳ","ዴ","ድ","ዶ"},{"ጀ","ጁ","ጂ","ጃ","ጄ","ጅ","ጆ"},{"ገ","ጉ","ጊ","ጋ","ጌ","ግ","ጎ"},
                             {"ጠ","ጡ","ጢ","ጣ","ጤ","ጥ","ጦ"},{"ጨ","ጩ","ጪ","ጫ","ጬ","ጭ","ጮ"},{"ጰ","ጱ","ጲ","ጳ","ጴ","ጵ","ጶ"},{"ጸ","ጹ","ጺ","ጻ","ጼ","ጽ","ጾ"},{"ፀ","ፁ","ፂ","ፃ","ፄ","ፅ","ፆ"},
                             {"ፈ","ፉ","ፊ","ፋ","ፌ","ፍ","ፎ"},{"ፐ","ፑ","ፒ","ፓ","ፔ","ፕ","ፖ"}};
-  String audioName;	
-
+  String audioName;
   public void child(int parent){
     childPanel.removeAll();
     for (int i = 0; i < 7; i++) {
@@ -44,6 +43,13 @@ public class Amharic_Alphabets extends JFrame implements ActionListener {
      }
   }
   public Amharic_Alphabets(){
+    setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+    addWindowListener(new WindowAdapter() {
+      public void windowClosing(WindowEvent e){
+        dispose();
+        new Amharic_page();
+      }
+    });
     Font font;
     try {
       font = Font.createFont(Font.TRUETYPE_FONT, new File("Font/AbyssinicaSIL-R.ttf"));
@@ -65,9 +71,7 @@ public class Amharic_Alphabets extends JFrame implements ActionListener {
     add(amhPanel);
     add(childPanel);
    setLayout(null);
-  
 setSize(screenSize.width,screenSize.height); 
-   
    for (int i = 0; i < amhButtons.length; i++) {
         amhButtons[i] = new JButton(fir_amh[i]);
         amhButtons[i].addActionListener(this);
@@ -105,8 +109,6 @@ setSize(screenSize.width,screenSize.height);
         String childAudioName = childAudio.get(key);
         new AudioPlayer(childAudioName);
       }
-      
     }
-    
   }
 }

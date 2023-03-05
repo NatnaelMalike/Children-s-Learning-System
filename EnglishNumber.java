@@ -15,14 +15,25 @@ public class EnglishNumber extends JFrame implements ActionListener {
     String audioName;
 
     public EnglishNumber(){
+      setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+      addWindowListener(new WindowAdapter() {
+        public void windowClosing(WindowEvent e){
+          dispose();
+          new English_Page();
+        }
+      });
         setLayout(null);
     numBtnPanel.setLayout(numBtnGrid);
     numBtnGrid.setVgap((int)(screenSize.height * 0.1));
     numBtnGrid.setHgap((int)(screenSize.height * 0.1));
-    numBtnPanel.setBounds((int)(screenSize.width * 0.1),(int)(screenSize.height * 0.2),(int)(screenSize.width * 0.8),(int)(screenSize.height * 0.6));
+    numBtnPanel.setBounds((int)(screenSize.width * 0.1),(int)(screenSize.height * 0.2),(int)(screenSize.width * 0.8),(int)(screenSize.height * 0.65));
     for (int i = 0; i < 10; i++) {
-        numButtons[i] = new JButton(String.valueOf(i));
+      image = tk.getImage("images/English Numbers/" +String.valueOf(i) +".jpg");
+        icon = new ImageIcon(image);
+        numButtons[i] = new JButton("",icon);
         numButtons[i].addActionListener(this);
+        numButtons[i].setOpaque(false);
+        numButtons[i].setContentAreaFilled(false);
         numBtnPanel.add(numButtons[i]);
         numberMap.put(numButtons[i], "English Numbers/" + String.valueOf(i) +".wav" );
       }
@@ -30,7 +41,6 @@ public class EnglishNumber extends JFrame implements ActionListener {
     setSize(screenSize.width,screenSize.width);
     setVisible(true);
     }
-
     public static void main(String[] args) {
         
     EventQueue.invokeLater(new Runnable() {

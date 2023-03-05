@@ -17,6 +17,13 @@ public class AmharicNumbers extends JFrame implements ActionListener {
     String audioName;
 
     public AmharicNumbers(){
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+          public void windowClosing(WindowEvent e){
+            dispose();
+            new Amharic_page();
+          }
+        });
         setLayout(null);
         numBtnGrid.setVgap((int)(screenSize.height * 0.01));
         numBtnGrid.setHgap((int)(screenSize.height * 0.01));

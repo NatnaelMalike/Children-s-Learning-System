@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -17,16 +18,21 @@ public class English_Page extends JFrame implements ActionListener {
         ImageIcon iconback = new ImageIcon(backgnd);
         JLabel background = new JLabel(iconback);
     English_Page(){
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+          public void windowClosing(WindowEvent e){
+            dispose();
+            new Home();
+          }
+        });
         setLayout(null);
         grid.setHgap((int)(screenSize.height * 0.1));
         grid.setVgap((int)(screenSize.height * 0.1));
         btnPanel.setLayout(grid);
         btnPanel.setOpaque(false);
-
-        btnPanel.setBounds((int)(screenSize.width * 0.25),(int)(screenSize.height * 0.15),(int)(screenSize.width * 0.5),(int)(screenSize.height * 0.7));
-        
+        btnPanel.setBounds((int)(screenSize.width * 0.35),(int)(screenSize.height * 0.15),(int)(screenSize.width * 0.4),(int)(screenSize.height * 0.6));
         for (int i = 0; i < btnName.length; i++) {
-            image = tk.getImage("images/English page Btns/" +String.valueOf(i + 1) +".png");
+            image = tk.getImage("images/English page Btns/" +String.valueOf(i + 1) +".jpg");
             icon = new ImageIcon(image);
             btns[i] = new JButton("", icon);
             btns[i].setContentAreaFilled(false);
@@ -35,7 +41,7 @@ public class English_Page extends JFrame implements ActionListener {
             btnPanel.add(btns[i]);
             btns[i].addActionListener(this); 
         }
-        setTitle("Learn Alphabets,Colors,Numbers In Amharic");
+        setTitle("Learn English Language");
         setSize(1200,700);
         setResizable(false);
         add(btnPanel);
@@ -48,24 +54,25 @@ public class English_Page extends JFrame implements ActionListener {
           } catch (Exception e) {
             
           }
-          
     }
-
     public static void main(String[] args) {
         new English_Page();
     }
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == btns[0]) {
+            dispose();
             new EnglishAlphabets();
         }else if(e.getSource() == btns[1]){
+            dispose();
             new English_Color();
         }else if(e.getSource() == btns[2]){
+            dispose();
             new EnglishNumber();
         }
         else if(e.getSource() == btns[3]){
-            new English_Page();
+            dispose();
+            new QuizEnglish();
         }
         
     }

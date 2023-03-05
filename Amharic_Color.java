@@ -23,6 +23,13 @@ public class Amharic_Color extends JFrame implements ActionListener {
     String [] colorNames ={"አረንጓዴ", "ቢጫ", "ብርቱካንማ", "ቡኒ", "ግራጫ", "ሐምራዊ", "ነጭ", "ቀይ", "ሰማያዊ", "ጥቁር", "ወይነጠጅ", "ውሃማ"};
 
     public Amharic_Color(){
+      setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+      addWindowListener(new WindowAdapter() {
+        public void windowClosing(WindowEvent e){
+          dispose();
+          new Amharic_page();
+        }
+      });
         Font font;
         try {
           font = Font.createFont(Font.TRUETYPE_FONT, new File("Font/AbyssinicaSIL-R.ttf"));

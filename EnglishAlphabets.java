@@ -14,7 +14,13 @@ public class EnglishAlphabets extends JFrame implements ActionListener {
   HashMap<Object, String> alphabetsMap = new HashMap<>();
   String audioName;
   public EnglishAlphabets(){
-    
+    setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+    addWindowListener(new WindowAdapter() {
+      public void windowClosing(WindowEvent e){
+        dispose();
+        new English_Page();
+      }
+    });
     engBtnGrid.setVgap((int)(screenSize.width * 0.05));
     engBtnGrid.setHgap((int)(screenSize.width * 0.05));
     engBtnPanel.setLayout(engBtnGrid);
@@ -28,6 +34,7 @@ public class EnglishAlphabets extends JFrame implements ActionListener {
     }
     JScrollPane scpane = new JScrollPane(engBtnPanel);
     engBtnPanel.setPreferredSize(new Dimension((int)(screenSize.width*0.8),(int)(screenSize.height*2.8)));
+    
     add(scpane);
     setSize(screenSize.width,screenSize.width);
     setVisible(true);
