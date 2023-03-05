@@ -8,28 +8,26 @@ public class EnglishAlphabets extends JFrame implements ActionListener {
   Dimension screenSize = tk.getScreenSize();
   JButton[] englishLetterButtons = new JButton[26];
   JPanel engBtnPanel = new JPanel();
- 
-  
-  
+  Image image;
+  ImageIcon icon; 
   GridLayout engBtnGrid = new GridLayout(6,5);
   HashMap<Object, String> alphabetsMap = new HashMap<>();
   String audioName;
   public EnglishAlphabets(){
-    //setLayout(null);
+    
     engBtnGrid.setVgap((int)(screenSize.width * 0.05));
     engBtnGrid.setHgap((int)(screenSize.width * 0.05));
     engBtnPanel.setLayout(engBtnGrid);
-    
-  
     for (int i = 0; i < englishLetterButtons.length; i++) {
-      englishLetterButtons[i] = new JButton(String.valueOf((char)(i + 65)));
+      image = tk.getImage("images/English Alphabets/" +String.valueOf((char)(i + 65)) +".jpg");
+      icon = new ImageIcon(image);
+      englishLetterButtons[i] = new JButton("",icon);
       englishLetterButtons[i].addActionListener(this);
       engBtnPanel.add(englishLetterButtons[i]);
-      alphabetsMap.put(englishLetterButtons[i],"English Alphabets/" +String.valueOf((char)(i + 65)) +".wav");
+      alphabetsMap.put(englishLetterButtons[i],"English Alphabet/" +String.valueOf((char)(i + 65)) +".wav");
     }
     JScrollPane scpane = new JScrollPane(engBtnPanel);
-    //engBtnPanel.setBounds((int)(screenSize.width * 0.05),(int)(screenSize.height * 0.05),(int)(screenSize.width * 0.8),(int)(screenSize.height * 0.5));
-    engBtnPanel.setPreferredSize(new Dimension((int)(screenSize.width*0.8),(int)(screenSize.height*1.5)));
+    engBtnPanel.setPreferredSize(new Dimension((int)(screenSize.width*0.8),(int)(screenSize.height*2.8)));
     add(scpane);
     setSize(screenSize.width,screenSize.width);
     setVisible(true);

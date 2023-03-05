@@ -1,11 +1,13 @@
 
 import javax.swing.*;
+import javafx.scene.input.MouseEvent;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 
 
-public class Amharic_Page extends JFrame implements ActionListener {
+public class Amharic_Page extends JFrame implements ActionListener,MouseListener {
     Image image;
     ImageIcon icon;
     Toolkit tk=Toolkit.getDefaultToolkit();
@@ -37,6 +39,7 @@ public class Amharic_Page extends JFrame implements ActionListener {
             btnPanel.add(btns[i]);
             btns[i].addActionListener(this); 
         }
+    
         setTitle("Learn Alphabets,Colors,Numbers In Amharic");
         setSize(1200,700);
         setResizable(false);
@@ -62,6 +65,40 @@ public class Amharic_Page extends JFrame implements ActionListener {
             new Amharic_Page();
         }
          
+    }
+    @Override
+    public void mouseClicked(java.awt.event.MouseEvent e) {
+        
+        throw new UnsupportedOperationException("Unimplemented method 'mouseClicked'");
+    }
+    @Override
+    public void mousePressed(java.awt.event.MouseEvent e) {
+       
+        throw new UnsupportedOperationException("Unimplemented method 'mousePressed'");
+    }
+    @Override
+    public void mouseReleased(java.awt.event.MouseEvent e) {
+        
+        throw new UnsupportedOperationException("Unimplemented method 'mouseReleased'");
+    }
+    @Override
+    public void mouseEntered(java.awt.event.MouseEvent e) {
+        if (e.getSource() == btns[0]) {
+            new AudioPlayer();
+            
+        }else if(e.getSource() == btns[0]){
+            new AudioPlayer();
+        }else if(e.getSource() == btns[0]){
+            new AudioPlayer();
+        }else{
+            new AudioPlayer();
+        }
+        throw new UnsupportedOperationException("Unimplemented method 'mouseEntered'");
+    }
+    @Override
+    public void mouseExited(java.awt.event.MouseEvent e) {
+        
+        throw new UnsupportedOperationException("Unimplemented method 'mouseExited'");
     }
 }
 

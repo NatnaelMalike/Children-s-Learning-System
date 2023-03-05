@@ -1,9 +1,11 @@
 
     import javax.swing.*;
-    import java.awt.*;
+import javax.swing.event.MenuListener;
+
+import java.awt.*;
     import java.awt.event.*;
     import java.util.HashMap;
-    public class English_Color extends JFrame implements ActionListener {
+    public class English_Color extends JFrame implements ActionListener{
         Toolkit tk=Toolkit.getDefaultToolkit();
         Dimension screenSize = tk.getScreenSize();
         JButton [] colorButtons = new JButton[12];

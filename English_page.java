@@ -16,9 +16,6 @@ public class English_Page extends JFrame implements ActionListener {
     Image backgnd = tk.getImage("images/School 02.jpg");
         ImageIcon iconback = new ImageIcon(backgnd);
         JLabel background = new JLabel(iconback);
- 
-    
-
     English_Page(){
         setLayout(null);
         grid.setHgap((int)(screenSize.height * 0.1));
