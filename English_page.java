@@ -14,7 +14,7 @@ public class English_Page extends JFrame implements ActionListener {
     String []btnName = {"Alphabet","Colors","Numbers","Back"};
     JPanel btnPanel = new JPanel(); 
     GridLayout grid = new GridLayout(2,2);
-    Image backgnd = tk.getImage("images/School 02.jpg");
+    Image backgnd = tk.getImage("images/pages.jpg");
         ImageIcon iconback = new ImageIcon(backgnd);
         JLabel background = new JLabel(iconback);
     English_Page(){
@@ -30,7 +30,7 @@ public class English_Page extends JFrame implements ActionListener {
         grid.setVgap((int)(screenSize.height * 0.1));
         btnPanel.setLayout(grid);
         btnPanel.setOpaque(false);
-        btnPanel.setBounds((int)(screenSize.width * 0.35),(int)(screenSize.height * 0.15),(int)(screenSize.width * 0.4),(int)(screenSize.height * 0.6));
+        btnPanel.setBounds((int)(screenSize.width * 0.3),(int)(screenSize.height * 0.15),(int)(screenSize.width * 0.4),(int)(screenSize.height * 0.6));
         for (int i = 0; i < btnName.length; i++) {
             image = tk.getImage("images/English page Btns/" +String.valueOf(i + 1) +".jpg");
             icon = new ImageIcon(image);

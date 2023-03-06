@@ -149,13 +149,13 @@ public class QuizAmharic extends JFrame implements ActionListener {
       for(int i = 0; i<4; i++){
         if(e.getSource() == Choices[i]){
           if(question.charAt(0) == options[randomIndex][i]){
-            new AudioPlayer("English Quiz/correct.wav");
+            new AudioPlayer("Amharic Quiz/correct.wav");
             JOptionPane.showMessageDialog(null, "Correct.");
             currentQuestion++;
             randomChoice();
             answered++;
           }else{
-            new AudioPlayer("English Quiz/incorrect.wav");
+            new AudioPlayer("Amharic Quiz/error.wav");
           JOptionPane.showMessageDialog(null, "InCorrect.");
           currentQuestion++;
             randomChoice();

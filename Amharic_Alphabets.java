@@ -14,7 +14,7 @@ public class Amharic_Alphabets extends JFrame implements ActionListener {
   JPanel cPanel = new JPanel();
   GridLayout amhGrid = new GridLayout(3,11);
   GridLayout childGrid = new GridLayout(1,7);
-  Image image = tk.getImage("images/School 02.jpg");
+  Image image = tk.getImage("images/let.jpg");
   ImageIcon icon = new ImageIcon(image);
   JLabel label = new JLabel(icon);
   HashMap <Object, String> amharicAlphabetsMap = new HashMap<>();
@@ -38,7 +38,8 @@ public class Amharic_Alphabets extends JFrame implements ActionListener {
       childPanel.add(childButtons[i]);
       childButtons[i].setFont(new Font("Abyssinica SIL",Font.PLAIN,(int)(screenSize.width * 0.03)));
       childButtons[i].addActionListener(this);
-      childButtons[i].setBackground(new Color(4,240,232));
+      childButtons[i].setContentAreaFilled(false);
+        childButtons[i].setFocusable(false);
       childAudio.put(childButtons[i],"Amharic Alphabets/"+ String.valueOf(parent + 1) +"/"+ String.valueOf(i + 1) + ".wav" );
      }
   }
@@ -72,6 +73,7 @@ public class Amharic_Alphabets extends JFrame implements ActionListener {
     add(childPanel);
    setLayout(null);
 setSize(screenSize.width,screenSize.height); 
+setTitle("Amharic Alphabets");
    for (int i = 0; i < amhButtons.length; i++) {
         amhButtons[i] = new JButton(fir_amh[i]);
         amhButtons[i].addActionListener(this);

@@ -15,7 +15,7 @@ public class Amharic_Color extends JFrame implements ActionListener {
     GridLayout boxLayout = new GridLayout(2,1);
     Image image;
     ImageIcon icon;
-    Image backgnd = tk.getImage("images/School 02.jpg");
+    Image backgnd = tk.getImage("images/clrs.png");
     ImageIcon iconback = new ImageIcon(backgnd);
     JLabel background = new JLabel(iconback);
     HashMap <Object, String> colorsAudio = new HashMap<>();
@@ -79,6 +79,7 @@ public class Amharic_Color extends JFrame implements ActionListener {
         add(colorBtnPanel);
         setSize(screenSize.width,screenSize.height);
         setVisible(true);
+        setTitle("Amharic Colors");
         background.setBounds(0,0,screenSize.width,screenSize.height);
         add(background);
         try {

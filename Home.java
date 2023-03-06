@@ -9,6 +9,7 @@ public class Home extends JFrame implements ActionListener {
     ImageIcon icon;
     Toolkit tk=Toolkit.getDefaultToolkit();
     Dimension screenSize = tk.getScreenSize();
+    JLabel label = new JLabel("Welcome To Our Digital Learning Application");
     JButton [] btns = new JButton[2];
     JPanel btnPanel = new JPanel(); 
     GridLayout grid = new GridLayout(3,1);
@@ -20,9 +21,11 @@ public class Home extends JFrame implements ActionListener {
         grid.setVgap((int)(screenSize.height * 0.1));
         btnPanel.setLayout(grid);
         btnPanel.setOpaque(false);
-        btnPanel.setBounds((int)(screenSize.width * 0.42),(int)(screenSize.height * 0.25),(int)(screenSize.width * 0.2),(int)(screenSize.height * 0.8));
+        label.setBounds((int)(screenSize.width * 0.15),(int)(screenSize.height * 0.01),(int)(screenSize.width * 1),(int)(screenSize.height * 0.2));
+        label.setFont(new Font("Monospaced",Font.BOLD,53));
+        btnPanel.setBounds((int)(screenSize.width * 0.42),(int)(screenSize.height * 0.25),(int)(screenSize.width * 0.2),(int)(screenSize.width * 0.5));
         for (int i = 0; i < 2; i++) {
-            image = tk.getImage("images/English page Btns/" +String.valueOf(i + 1) +".jpg");
+            image = tk.getImage("images/home btn/" +String.valueOf(i + 1) +".jpg");
             icon = new ImageIcon(image);
             btns[i] = new JButton("", icon);
             btns[i].setContentAreaFilled(false);
@@ -34,6 +37,7 @@ public class Home extends JFrame implements ActionListener {
         setSize(1200,700);
         setResizable(false);
         add(btnPanel);
+        add(label);
         setSize(screenSize.width,screenSize.width);
         setVisible(true);
         background.setBounds(0,0,screenSize.width,screenSize.height);

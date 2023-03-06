@@ -13,6 +13,9 @@ public class EnglishNumber extends JFrame implements ActionListener {
     GridLayout numBtnGrid = new GridLayout(2,5);
     HashMap<Object, String> numberMap = new HashMap<>();
     String audioName;
+    Image backgnd = tk.getImage("images/num.jpg");
+        ImageIcon iconback = new ImageIcon(backgnd);
+        JLabel background = new JLabel(iconback);
 
     public EnglishNumber(){
       setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -40,6 +43,9 @@ public class EnglishNumber extends JFrame implements ActionListener {
       add(numBtnPanel);
     setSize(screenSize.width,screenSize.width);
     setVisible(true);
+    numBtnPanel.setOpaque(false);
+    background.setBounds(0,0,screenSize.width,screenSize.height);
+        add(background);
     }
     public static void main(String[] args) {
         

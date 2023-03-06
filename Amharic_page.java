@@ -11,10 +11,10 @@ public class Amharic_page extends JFrame implements ActionListener {
     Toolkit tk=Toolkit.getDefaultToolkit();
     Dimension screenSize = tk.getScreenSize();
     JButton [] btns = new JButton[4];
-    String []btnName = {"Alphabet","Colors","Numbers","Back"};
+    
     JPanel btnPanel = new JPanel(); 
     GridLayout grid = new GridLayout(2,2);
-    Image backgnd = tk.getImage("images/School 02.jpg");
+    Image backgnd = tk.getImage("images/pages.jpg");
         ImageIcon iconback = new ImageIcon(backgnd);
         JLabel background = new JLabel(iconback);
 
@@ -32,9 +32,9 @@ public class Amharic_page extends JFrame implements ActionListener {
         btnPanel.setLayout(grid);
         btnPanel.setOpaque(false);
 
-        btnPanel.setBounds((int)(screenSize.width * 0.35),(int)(screenSize.height * 0.15),(int)(screenSize.width * 0.4),(int)(screenSize.height * 0.6));
+        btnPanel.setBounds((int)(screenSize.width * 0.3),(int)(screenSize.height * 0.15),(int)(screenSize.width * 0.4),(int)(screenSize.height * 0.6));
         
-        for (int i = 0; i < btnName.length; i++) {
+        for (int i = 0; i < 4; i++) {
             image = tk.getImage("images/Amharic page Btns/" +String.valueOf(i + 1) +".jpg");
             icon = new ImageIcon(image);
             btns[i] = new JButton("", icon);
@@ -51,6 +51,7 @@ public class Amharic_page extends JFrame implements ActionListener {
         setResizable(false);
         add(btnPanel);
         setSize(screenSize.width,screenSize.width);
+        
         setVisible(true);
         background.setBounds(0,0,screenSize.width,screenSize.height);
         add(background);

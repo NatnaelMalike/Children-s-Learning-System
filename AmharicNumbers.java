@@ -15,6 +15,9 @@ public class AmharicNumbers extends JFrame implements ActionListener {
     ImageIcon icon;
     HashMap <Object, String> numbersAudio = new HashMap<>();
     String audioName;
+    Image backgnd = tk.getImage("images/clrs.png");
+        ImageIcon iconback = new ImageIcon(backgnd);
+        JLabel background = new JLabel(iconback);
 
     public AmharicNumbers(){
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -43,7 +46,10 @@ public class AmharicNumbers extends JFrame implements ActionListener {
         }
         add(numBtnPanel);
         setSize(screenSize.width,screenSize.height);
+        numBtnPanel.setOpaque(false);
         setVisible(true);
+        background.setBounds(0,0,screenSize.width,screenSize.height);
+        add(background);
     }
     public static void main(String[] args) {
        new AmharicNumbers(); 

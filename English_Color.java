@@ -11,7 +11,7 @@ import java.awt.*;
         GridLayout colorBtnGrid = new GridLayout(2,6);
         Image image;
         ImageIcon icon;
-        Image backgnd = tk.getImage("images/School 02.jpg");
+        Image backgnd = tk.getImage("images/clrs.png");
         ImageIcon iconback = new ImageIcon(backgnd);
         JLabel background = new JLabel(iconback);
         HashMap <Object, String> colorsAudio = new HashMap<>();
@@ -41,10 +41,11 @@ import java.awt.*;
             } 
             
             colorBtnPanel.setBounds((int)(screenSize.width*0.05),(int)(screenSize.height*0.05),(int)(screenSize.width*0.8),(int)(screenSize.height*1));
-            //colorBtnPanel.setOpaque(false);
+            colorBtnPanel.setOpaque(false);
             add(colorBtnPanel);
             setSize(screenSize.width,screenSize.height);
             setVisible(true);
+            setTitle("English Colors");
             background.setBounds(0,0,screenSize.width,screenSize.height);
             add(background);
             try {
