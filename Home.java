@@ -2,8 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-
 public class Home extends JFrame implements ActionListener {
     Image image;
     ImageIcon icon;
@@ -34,7 +32,7 @@ public class Home extends JFrame implements ActionListener {
             btns[i].addActionListener(this); 
         }
         setTitle("Learn Languages");
-        setSize(1200,700);
+
         setResizable(false);
         add(btnPanel);
         add(label);

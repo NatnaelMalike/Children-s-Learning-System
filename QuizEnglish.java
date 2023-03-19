@@ -130,7 +130,6 @@ public class QuizEnglish extends JFrame implements ActionListener {
         dispose();
         QuizScore obj = new QuizScore(answered);
         obj.englishWrite(String.valueOf(answered));
-        
       }      
     }else{
       for(int i = 0; i<4; i++){
